@@ -1,33 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import{View,Text} from 'react-native';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import productsReducer from './store/reducers/products';
+import ShopNavigator from './navigation/ShopNavigator';
 
-export default function App () {
+const rootReducer = combineReducers({
+  products: productsReducer
+});
+
+const store = createStore(rootReducer);
+
+export default function App() {
   return (
-    <View>
-      <Text>A new App!</Text>
-    </View>
-  )
+    <Provider store={store}>
+      <ShopNavigator />
+    </Provider>
+  );
 }
