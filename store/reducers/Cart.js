@@ -1,14 +1,13 @@
- import CartItem from '../../models/cart-Item.js';
-
+ import CartItem from '../../models/CartItem.js';
+import ADD_TO_CART from '../actions/Cart';
 const initialState = {
 items: [],
 totalAmount: 0
 };
 export default (state=initialState, action) => {
-    return state;
     switch(action.type){
         case ADD_TO_CART:  
-        const addeProduct = action.product;
+        const addedProduct = action.product;
         const prodPrice = addedProduct.price;
         const prodTitle = addedProduct.title;
 
@@ -32,5 +31,7 @@ export default (state=initialState, action) => {
                 }
             }
         }
+        default:
+            return state;
     }
 }
