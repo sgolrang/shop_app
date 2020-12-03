@@ -1,6 +1,7 @@
-import { ActionSheetIOS } from 'react-native';
 import CartItem from '../../models/CartItem.js';
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/Cart';
+import {ADD_ORDER} from '../actions/order'; 
+
 const initialState = {
     items: [],
     totalAmount: 0
@@ -53,6 +54,8 @@ export default (state = initialState, action) => {
                 items: updatedCartItem,
                 totalAmount: state.totalAmount - selectedCartItem.productPrice
             }
+            case ADD_ORDER: 
+            return initialState;
 
         default:
             return state;

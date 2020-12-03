@@ -6,7 +6,7 @@ import Colors from '../../constants/Colors';
 import CartItem from '../../Components/shop/CartItem';
 import * as cartActions from '../../store/actions/Cart';
 import * as ordersActions from '../../store/actions/order';
-import order from '../../store/reducers/order';
+// import order from '../../store/reducers/order';
 
 
 const CartScreen = props => {

@@ -1,5 +1,5 @@
-import { ADD_ORDER } from "../actions/order";
-import Order from '../../models/order';
+import { ADD_ORDER } from "../actions/order.js";
+import Order from '../../models/order.js';
 const initialState = {
     orders: []
 };
