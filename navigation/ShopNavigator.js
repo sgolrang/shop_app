@@ -16,6 +16,7 @@ const defaultNavOptions = {
   },
   headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
 };
+
 const ProductsNavigator = createStackNavigator(
   {
     ProductsOverview: ProductsOverviewScreen,
@@ -35,6 +36,7 @@ const ProductsNavigator = createStackNavigator(
     defaultNavigationOptions: defaultNavOptions
   }
 );
+
 const OrdersNavigator = createStackNavigator(
   {
     Orders: OrdersScreen
@@ -42,7 +44,7 @@ const OrdersNavigator = createStackNavigator(
   {
     navigationOptions: {
       drawerIcon: drawerConfig => (
-        <Ionicons
+        <Icon
           name={Platform.OS === 'android' ? 'md-list' : 'ios-list'}
           size={23}
           color={drawerConfig.tintColor}
@@ -52,6 +54,7 @@ const OrdersNavigator = createStackNavigator(
     defaultNavigationOptions: defaultNavOptions
   }
 );
+
 const ShopNavigator = createDrawerNavigator(
   {
     Products: ProductsNavigator,
@@ -64,4 +67,4 @@ const ShopNavigator = createDrawerNavigator(
   }
 );
 
-export default createAppContainer(ProductsNavigator);
+export default createAppContainer(ShopNavigator);

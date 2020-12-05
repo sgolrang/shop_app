@@ -5,6 +5,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../../Components/UI/HeaderButton';
 import ProductItem from '../../Components/shop/ProductItem.js';
 import * as cartActions from '../../store/actions/Cart';
+// import {createDrawerNavigator} from '@react-navigation/drawer';
 
 
 const ProductsOverviewScreen = props => {

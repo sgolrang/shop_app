@@ -11,10 +11,12 @@ export default (state = initialState, action) => {
                 new Date().toString(),
                 action.orderData.items,
                 action.orderData.amount,
-                new Date()
+                new Date(),
+                console.log('###############################')
 
             );
             return {
+                
                 ...state, 
                 orders: state.orders.concat(newOrder)
             }

@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
 const CartItem = props => {
-    console.log("@@@@");
     return (
       <View style={styles.cartItem}>
         <View style={styles.itemData}>

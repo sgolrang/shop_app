@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
                 
             }
             else {
-                console.log('###############################',prodPrice)
+             
 
                 updatedOrNewCartItem = new CartItem(1, prodPrice, prodTitle, prodPrice);
             }
