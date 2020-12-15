@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../Components/UI/Card';
 
 import Colors from '../../constants/Colors';
-// import CartItem from '../../Components/shop/CartItem';
-// import * as cartActions from '../../store/actions/cart.js';
+import CartItem from '../../Components/shop/CartItem';
+import * as cartActions from '../../store/actions/Cart';
 import * as ordersActions from '../../store/actions/order';
 
 const CartScreen = props => {

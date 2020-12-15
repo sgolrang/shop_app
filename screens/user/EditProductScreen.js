@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useReducer } from 'react';
+import React, { useEffect, useCallback, useReducer, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, Platform, Alert, KeyboardAvoidingView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -33,6 +33,9 @@ const formReducer = (state, action) => {
 };
 
 const EditProductScreen = props => {
+// const [isLoading, setIsLoading] = useState(false);
+// const [error, setEror] = useState();
+
   const prodId = props.navigation.getParam('productId');
   const editedProduct = useSelector(state =>
     state.products.userProducts.find(prod => prod.id === prodId)
