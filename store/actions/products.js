@@ -12,45 +12,48 @@ export const fetchProducts = () => {
       const response = await fetch(
         'https://practice-shop-7a710.firebaseio.com/products.json'
         // 'https://rn-complete-guide.firebaseio.com/products.json'
-      );
-
-      console.log('#############', response)
-      if (!response.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const resData = await response.json();
-      const loadedProducts = [];
-
-      for (const key in resData) {
-        loadedProducts.push(
-          new Product(
-            key,
-            'u1',
-            resData[key].title,
-            resData[key].imageUrl,
-            resData[key].description,
-            resData[key].price
-          )
         );
+
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+  
+        const resData = await response.json();
+        const loadedProducts = [];
+  
+        for (const key in resData) {
+          loadedProducts.push(
+            new Product(
+              key,
+              'u1',
+              resData[key].title,
+              resData[key].imageUrl,
+              resData[key].description,
+              resData[key].price
+            )
+          );
+        }
+  
+        dispatch({ type: SET_PRODUCTS, products: loadedProducts });
+      } catch (err) {
+        // send to custom analytics server
+        throw err;
       }
-
-      dispatch({ type: SET_PRODUCTS, products: loadedProducts });
-    } catch (err) {
-      // send to custom analytics server
-      throw err;
-    }
+    };
   };
-};
 
-export const deleteProduct = productId => {
-  return async dispatch => {
-    await fetch(
+  export const deleteProduct = productId => {
+    return async dispatch => {
+      const response = await fetch(
       `https://practice-shop-7a710.firebaseio.com/products/${productId}.json`,
       {
         method: 'DELETE'
       }
     );
+
+    if (!response.ok) {
+      throw new Error('Something went wrong!');
+    }
     dispatch({ type: DELETE_PRODUCT, pid: productId });
   };
 };
@@ -91,7 +94,7 @@ export const createProduct = (title, description, imageUrl, price) => {
 
 export const updateProduct = (id, title, description, imageUrl) => {
   return async dispatch => {
-    await fetch(
+    const response = await fetch(
       `https://practice-shop-7a710.firebaseio.com/products/${id}.json`,
       {
         method: 'PATCH',
@@ -105,6 +108,10 @@ export const updateProduct = (id, title, description, imageUrl) => {
         })
       }
     );
+
+    if (!response.ok) {
+      throw new Error('Something went wrong!');
+    }
 
     dispatch({
       type: UPDATE_PRODUCT,
