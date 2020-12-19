@@ -10,7 +10,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import HeaderButton from '../../components/UI/HeaderButton';
+import HeaderButton from '../../components/UI/HeaderButton.js';
 import OrderItem from '../../components/shop/OrderItem';
 import * as ordersActions from '../../store/actions/orders';
 import Colors from '../../constants/Colors';
@@ -55,7 +55,9 @@ OrdersScreen.navigationOptions = navData => {
   return {
     headerTitle: 'Your Orders',
     headerLeft: (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <HeaderButtons 
+     HeaderButtonComponent={HeaderButton}
+      >
         <Item
           title="Menu"
           iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}

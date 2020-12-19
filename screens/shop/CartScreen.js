@@ -44,7 +44,8 @@ const CartScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <Card style={styles.summary}>
+      {/* <Card style={styles.summary}> */}
+      <View>
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
@@ -61,8 +62,9 @@ const CartScreen = props => {
             onPress={sendOrderHandler}
           />
         )}
-      </Card>
-      <FlatList
+        </View>
+      {/* </Card> */}
+      {/* <FlatList
         data={cartItems}
         keyExtractor={item => item.productId}
         renderItem={itemData => (
@@ -76,7 +78,7 @@ const CartScreen = props => {
             }}
           />
         )}
-      />
+      /> */}
     </View>
   );
 };
@@ -97,7 +99,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   summaryText: {
-    fontFamily: 'open-sans-bold',
     fontSize: 18
   },
   amount: {

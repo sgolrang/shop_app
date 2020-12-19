@@ -2,6 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createSwitchNavigator } from 'react-navigation';
 import { Platform } from 'react-native';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
 import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen';
@@ -11,6 +12,7 @@ import OrdersScreen from '../screens/shop/OrdersScreen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import UserProductsScreen from '../screens/user/UserProductsScreen';
 import EditProductsScreen from '../screens/user/EditProductScreen';
+import AuthScreen from '../screens/user/AuthScreen';
 
 const defaultNavOptions = {
   headerStyle: {
@@ -58,23 +60,23 @@ const OrdersNavigator = createStackNavigator(
 );
 
 const AdminNavigator = createStackNavigator(
-    {
-      UserProducts: UserProductsScreen,
-      EditProduct: EditProductsScreen
+  {
+    UserProducts: UserProductsScreen,
+    EditProduct: EditProductsScreen
+  },
+  {
+    navigationOptions: {
+      drawerIcon: drawerConfig => (
+        <Icon
+          name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+          size={23}
+          color={drawerConfig.tintColor}
+        />
+      )
     },
-    {
-      navigationOptions: {
-        drawerIcon: drawerConfig => (
-          <Icon
-            name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
-            size={23}
-            color={drawerConfig.tintColor}
-          />
-        )
-      },
-      defaultNavigationOptions: defaultNavOptions
-    }
-  );
+    defaultNavigationOptions: defaultNavOptions
+  }
+);
 
 const ShopNavigator = createDrawerNavigator(
   {
@@ -88,5 +90,12 @@ const ShopNavigator = createDrawerNavigator(
     }
   }
 );
+const AuthNavigator = createStackNavigator({
+  Auth: AuthScreen
+})
+const MainNavigator = createSwitchNavigator({
+  Auth: AuthNavigator,
+  Shop: ShopNavigator
 
+})
 export default createAppContainer(ShopNavigator);
