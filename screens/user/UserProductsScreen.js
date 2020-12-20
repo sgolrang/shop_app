@@ -1,10 +1,10 @@
 import React from 'react';
 import { FlatList, Button, Alert } from 'react-native';
-import ProductItem from '../../Components/shop/ProductItem';
+import ProductItem from '../../components/shop/ProductItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { Item } from 'react-navigation-header-buttons';
 import { HeaderButtons } from 'react-navigation-header-buttons';
-import HeaderButton from '../../Components/UI/HeaderButton';
+import HeaderButton from '../../components/UI/HeaderButton';
 import Colors from '../../constants/Colors';
 import * as productsActions from '../../store/actions/products';
 

@@ -2,9 +2,9 @@ import React, { useEffect, useCallback, useReducer, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, Platform, Alert, KeyboardAvoidingView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import HeaderButton from '../../Components/UI/HeaderButton';
+import HeaderButton from '../../components/UI/HeaderButton';
 import * as  productsActions from '../../store/actions/products';
-import Input from '../../Components/UI/input';
+import Input from '../../components/UI/Input';
 
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';

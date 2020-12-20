@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Button
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+// import { LinearGradient } from 'expo-linear-gradient';
 
 import Input from '../../components/UI/Input';
 import Card from '../../components/UI/Card';
@@ -73,7 +73,7 @@ const AuthScreen = props => {
       keyboardVerticalOffset={50}
       style={styles.screen}
     >
-      <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
+     
         <Card style={styles.authContainer}>
           <ScrollView>
             <Input
@@ -111,7 +111,7 @@ const AuthScreen = props => {
             </View>
           </ScrollView>
         </Card>
-      </LinearGradient>
+  
     </KeyboardAvoidingView>
   );
 };

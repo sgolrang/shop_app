@@ -8,9 +8,9 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import CartItem from '../../components/shop/CartItem.js';
+import CartItem from '../../components/shop/CartItem';
 import Card from '../../components/UI/Card.js';
- import * as cartActions from '../../store/actions/cart';
+ import * as cartActions from '../../store/actions/Cart';
 import Colors from '../../constants/Colors';
 
 import * as ordersActions from '../../store/actions/order';

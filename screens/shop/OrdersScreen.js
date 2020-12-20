@@ -12,7 +12,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../../components/UI/HeaderButton.js';
 import OrderItem from '../../components/shop/OrderItem';
-import * as ordersActions from '../../store/actions/orders';
+import * as ordersActions from '../../store/actions/order';
 import Colors from '../../constants/Colors';
 
 const OrdersScreen = props => {
