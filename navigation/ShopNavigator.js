@@ -11,7 +11,7 @@ import CartScreen from '../screens/shop/CartScreen';
 import OrdersScreen from '../screens/shop/OrdersScreen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import UserProductsScreen from '../screens/user/UserProductsScreen';
-import EditProductsScreen from '../screens/user/EditProductScreen';
+import EditProductScreen from '../screens/user/EditProductScreen';
 import AuthScreen from '../screens/user/AuthScreen';
 
 const defaultNavOptions = {
@@ -62,12 +62,12 @@ const OrdersNavigator = createStackNavigator(
 const AdminNavigator = createStackNavigator(
   {
     UserProducts: UserProductsScreen,
-    EditProduct: EditProductsScreen
+    EditProduct: EditProductScreen
   },
   {
     navigationOptions: {
       drawerIcon: drawerConfig => (
-        <Icon
+        <Ionicons
           name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
           size={23}
           color={drawerConfig.tintColor}
@@ -90,12 +90,19 @@ const ShopNavigator = createDrawerNavigator(
     }
   }
 );
-const AuthNavigator = createStackNavigator({
-  Auth: AuthScreen
-})
+
+const AuthNavigator = createStackNavigator(
+  {
+    Auth: AuthScreen
+  },
+  {
+    defaultNavigationOptions: defaultNavOptions
+  }
+);
+
 const MainNavigator = createSwitchNavigator({
   Auth: AuthNavigator,
   Shop: ShopNavigator
+});
 
-})
-export default createAppContainer(ShopNavigator);
+export default createAppContainer(MainNavigator);
