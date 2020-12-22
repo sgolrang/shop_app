@@ -36,7 +36,7 @@ const OrdersScreen = props => {
       </View>
     );
   }
-  if ( orders === 0) {
+  if ( orders.length === 0) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>No orders found, maybe start ordering some</Text>
