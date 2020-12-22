@@ -14,6 +14,7 @@ import HeaderButton from '../../components/UI/HeaderButton.js';
 import OrderItem from '../../components/shop/OrderItem';
 import * as ordersActions from '../../store/actions/order';
 import Colors from '../../constants/Colors';
+import order from '../../store/reducers/order.js';
 
 const OrdersScreen = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +36,13 @@ const OrdersScreen = props => {
       </View>
     );
   }
-
+  if ( orders === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>No orders found, maybe start ordering some</Text>
+      </View>
+    )
+  }
   return (
     <FlatList
       data={orders}
@@ -55,8 +62,8 @@ OrdersScreen.navigationOptions = navData => {
   return {
     headerTitle: 'Your Orders',
     headerLeft: (
-      <HeaderButtons 
-     HeaderButtonComponent={HeaderButton}
+      <HeaderButtons
+        HeaderButtonComponent={HeaderButton}
       >
         <Item
           title="Menu"

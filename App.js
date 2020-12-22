@@ -7,21 +7,16 @@ import cartReducer from './store/reducers/Cart';
 import productsReducer from './store/reducers/products';
 import ShopNavigator from './navigation/ShopNavigator';
 import ordersReducer from './store/reducers/order';
+import authReducer from './store/reducers/auth';
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
+  auth: authReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-
-// const fetchFonts = () => {
-//   return Font.loadAsync({
-//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
-//   });
-// };
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
